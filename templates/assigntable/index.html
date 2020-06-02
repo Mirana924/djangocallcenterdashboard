@@ -1,20 +1,28 @@
+
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Call Center Calculator</title>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+{#    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">#}
+{#    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">#}
+    <link rel="stylesheet" href="{% static 'css/assigntable.css' %}">
 </head>
 <body>
-    <h1>Inputs:</h1>
+    <h1 class="page-header">Call Center Agent Assignment</h1>
     <form action="index.html" method="post">
         {% csrf_token %}
-        <p><input type="text" name="data_A" />Please input A</p>
-        <p><input type="text" name="data_B" />Please input B</p>
-        <input type="radio" name="data_C" value="yes" />yes<br />
-        <input type="radio" name="dtat_C" value="no" />no<br />
+        <h2>Please input following values</h2>
+        <p>Average Handling Time <input type="number" name="AHT" value="200" /> in seconds</p>
+        <p>Reporting Period <input type="number" name="RP" value="60" /> in minutes</p>
+        <p>Required Service Level <input type="number" name="SL" value="80" /> %, e.p. 80</p>
+        <p>Target Answer Time <input type="number" name="TAT" value="60" /> in seconds</p>
+        <p>Shrinkage <input type="number" name="Shrink" value="20" /> %, e.p. 20</p>
+
+
         <input type="submit" value="Calculation">
+        <input type="reset">
     </form>
 
     <h1>Assignments:</h1>

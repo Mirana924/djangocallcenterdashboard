@@ -120,3 +120,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+
+MEDIA_DIR = os.path.join(BASE_DIR, 'media')
+
+# MEDIA_ROOT用来告诉Django你的上传文件保存在电脑的哪个位置
+MEDIA_ROOT = MEDIA_DIR
+# 第一个变量MEDIA_URL定义了基地址.如果把MEDIA_URL设置为/media/意味着上传URL为http://127.0.0.1:8000/media/
+MEDIA_URL = '/media/'
